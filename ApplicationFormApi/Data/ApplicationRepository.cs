@@ -131,6 +131,7 @@ public class ApplicationRepository : IApplicationRepository
 
         return new ApplicationQuestionResponse()
         {
+            ApplicationId = application.Resource.Id,
             ApplicationName = application.Resource.Name,
             ApplicationDescription = application.Resource.Description,
             Questions = application.Resource.Questions

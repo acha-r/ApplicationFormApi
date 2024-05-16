@@ -1,5 +1,6 @@
 ﻿using ApplicationFormApi.Data;
 using ApplicationFormApi.DTO;
+using ApplicationFormApi.Services;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -9,16 +10,16 @@ namespace ApplicationFormApi.Controllers;
 [ApiController]
 public class ApplicantController : ControllerBase
 {
-    private readonly IApplicantRepository _applicantRepo;
+    private readonly IApplicantServices _applicantService;
 
-    public ApplicantController(IApplicantRepository applicantRepo)
+    public ApplicantController(IApplicantServices applicantService)
     {
-        _applicantRepo = applicantRepo;
+        _applicantService = applicantService;
     }
 
     [HttpPost]
     public async Task<IActionResult> SubmitApplication(string applicationId, ApplicantFormDto request)
     {
-        return Ok(await _applicantRepo.SubmitAplication(applicationId, request));
+        return Ok(await _applicantService.SubmitAplication(applicationId, request));
     }
 }

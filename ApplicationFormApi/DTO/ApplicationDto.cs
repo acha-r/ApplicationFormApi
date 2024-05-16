@@ -31,6 +31,7 @@ public class UpdateQuestionDto
 
 public class ApplicationQuestionResponse
 {
+    public string ApplicationId { get; set; }
     public string ApplicationName { get; set; }
     public string ApplicationDescription { get; set; }
     public IList<Question> Questions { get; set; }
